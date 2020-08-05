@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.kgc.wxc.exam.mapper.ItembankMapper" >
+  <resultMap id="BaseResultMap" type="cn.kgc.wxc.exam.entity.Itembank" >
+    <constructor >
+      <idArg column="eid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="choice" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="answer_a" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="answer_b" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="answer_c" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="answer_d" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="right_answer" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="knowledge_point" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="resolve_example" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="test_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="right_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="subject" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="chapter" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="detail" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    eid, title, choice, answer_a, answer_b, answer_c, answer_d, right_answer, knowledge_point, 
+    resolve_example, test_count, right_count, subject, chapter, detail
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.kgc.wxc.exam.entity.ItembankExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from itembank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from itembank
+    where eid = #{eid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from itembank
+    where eid = #{eid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.kgc.wxc.exam.entity.ItembankExample" >
+    delete from itembank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.kgc.wxc.exam.entity.Itembank" >
+    insert into itembank (eid, title, choice, 
+      answer_a, answer_b, answer_c, 
+      answer_d, right_answer, knowledge_point, 
+      resolve_example, test_count, right_count, 
+      subject, chapter, detail
+      )
+    values (#{eid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{choice,jdbcType=INTEGER}, 
+      #{answerA,jdbcType=VARCHAR}, #{answerB,jdbcType=VARCHAR}, #{answerC,jdbcType=VARCHAR}, 
+      #{answerD,jdbcType=VARCHAR}, #{rightAnswer,jdbcType=VARCHAR}, #{knowledgePoint,jdbcType=VARCHAR}, 
+      #{resolveExample,jdbcType=VARCHAR}, #{testCount,jdbcType=INTEGER}, #{rightCount,jdbcType=INTEGER}, 
+      #{subject,jdbcType=INTEGER}, #{chapter,jdbcType=INTEGER}, #{detail,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.kgc.wxc.exam.entity.Itembank" >
+    insert into itembank
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        eid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="choice != null" >
+        choice,
+      </if>
+      <if test="answerA != null" >
+        answer_a,
+      </if>
+      <if test="answerB != null" >
+        answer_b,
+      </if>
+      <if test="answerC != null" >
+        answer_c,
+      </if>
+      <if test="answerD != null" >
+        answer_d,
+      </if>
+      <if test="rightAnswer != null" >
+        right_answer,
+      </if>
+      <if test="knowledgePoint != null" >
+        knowledge_point,
+      </if>
+      <if test="resolveExample != null" >
+        resolve_example,
+      </if>
+      <if test="testCount != null" >
+        test_count,
+      </if>
+      <if test="rightCount != null" >
+        right_count,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="chapter != null" >
+        chapter,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="eid != null" >
+        #{eid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="choice != null" >
+        #{choice,jdbcType=INTEGER},
+      </if>
+      <if test="answerA != null" >
+        #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="rightAnswer != null" >
+        #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="knowledgePoint != null" >
+        #{knowledgePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="resolveExample != null" >
+        #{resolveExample,jdbcType=VARCHAR},
+      </if>
+      <if test="testCount != null" >
+        #{testCount,jdbcType=INTEGER},
+      </if>
+      <if test="rightCount != null" >
+        #{rightCount,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=INTEGER},
+      </if>
+      <if test="chapter != null" >
+        #{chapter,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.kgc.wxc.exam.entity.ItembankExample" resultType="java.lang.Integer" >
+    select count(*) from itembank
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update itembank
+    <set >
+      <if test="record.eid != null" >
+        eid = #{record.eid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.choice != null" >
+        choice = #{record.choice,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerA != null" >
+        answer_a = #{record.answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answerB != null" >
+        answer_b = #{record.answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answerC != null" >
+        answer_c = #{record.answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answerD != null" >
+        answer_d = #{record.answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rightAnswer != null" >
+        right_answer = #{record.rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.knowledgePoint != null" >
+        knowledge_point = #{record.knowledgePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resolveExample != null" >
+        resolve_example = #{record.resolveExample,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testCount != null" >
+        test_count = #{record.testCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.rightCount != null" >
+        right_count = #{record.rightCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.subject != null" >
+        subject = #{record.subject,jdbcType=INTEGER},
+      </if>
+      <if test="record.chapter != null" >
+        chapter = #{record.chapter,jdbcType=INTEGER},
+      </if>
+      <if test="record.detail != null" >
+        detail = #{record.detail,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update itembank
+    set eid = #{record.eid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      choice = #{record.choice,jdbcType=INTEGER},
+      answer_a = #{record.answerA,jdbcType=VARCHAR},
+      answer_b = #{record.answerB,jdbcType=VARCHAR},
+      answer_c = #{record.answerC,jdbcType=VARCHAR},
+      answer_d = #{record.answerD,jdbcType=VARCHAR},
+      right_answer = #{record.rightAnswer,jdbcType=VARCHAR},
+      knowledge_point = #{record.knowledgePoint,jdbcType=VARCHAR},
+      resolve_example = #{record.resolveExample,jdbcType=VARCHAR},
+      test_count = #{record.testCount,jdbcType=INTEGER},
+      right_count = #{record.rightCount,jdbcType=INTEGER},
+      subject = #{record.subject,jdbcType=INTEGER},
+      chapter = #{record.chapter,jdbcType=INTEGER},
+      detail = #{record.detail,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.kgc.wxc.exam.entity.Itembank" >
+    update itembank
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="choice != null" >
+        choice = #{choice,jdbcType=INTEGER},
+      </if>
+      <if test="answerA != null" >
+        answer_a = #{answerA,jdbcType=VARCHAR},
+      </if>
+      <if test="answerB != null" >
+        answer_b = #{answerB,jdbcType=VARCHAR},
+      </if>
+      <if test="answerC != null" >
+        answer_c = #{answerC,jdbcType=VARCHAR},
+      </if>
+      <if test="answerD != null" >
+        answer_d = #{answerD,jdbcType=VARCHAR},
+      </if>
+      <if test="rightAnswer != null" >
+        right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="knowledgePoint != null" >
+        knowledge_point = #{knowledgePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="resolveExample != null" >
+        resolve_example = #{resolveExample,jdbcType=VARCHAR},
+      </if>
+      <if test="testCount != null" >
+        test_count = #{testCount,jdbcType=INTEGER},
+      </if>
+      <if test="rightCount != null" >
+        right_count = #{rightCount,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=INTEGER},
+      </if>
+      <if test="chapter != null" >
+        chapter = #{chapter,jdbcType=INTEGER},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=INTEGER},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.kgc.wxc.exam.entity.Itembank" >
+    update itembank
+    set title = #{title,jdbcType=VARCHAR},
+      choice = #{choice,jdbcType=INTEGER},
+      answer_a = #{answerA,jdbcType=VARCHAR},
+      answer_b = #{answerB,jdbcType=VARCHAR},
+      answer_c = #{answerC,jdbcType=VARCHAR},
+      answer_d = #{answerD,jdbcType=VARCHAR},
+      right_answer = #{rightAnswer,jdbcType=VARCHAR},
+      knowledge_point = #{knowledgePoint,jdbcType=VARCHAR},
+      resolve_example = #{resolveExample,jdbcType=VARCHAR},
+      test_count = #{testCount,jdbcType=INTEGER},
+      right_count = #{rightCount,jdbcType=INTEGER},
+      subject = #{subject,jdbcType=INTEGER},
+      chapter = #{chapter,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=INTEGER}
+    where eid = #{eid,jdbcType=INTEGER}
+  </update>
+</mapper>

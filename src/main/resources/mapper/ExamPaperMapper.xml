@@ -1,0 +1,952 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.kgc.wxc.exam.mapper.ExamPaperMapper" >
+  <resultMap id="BaseResultMap" type="cn.kgc.wxc.exam.entity.ExamPaper" >
+    <constructor >
+      <idArg column="epid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="q1id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q2id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q3id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q4id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q5id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q6id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q7id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q8id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q9id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q10id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q11id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q12id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q13id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q14id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q15id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q16id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q17id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q18id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q19id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q20id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q21id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q22id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q23id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q24id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q25id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q26id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q27id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q28id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q29id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q30id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q31id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q32id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q33id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q34id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q35id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q36id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q37id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q38id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q39id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q40id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q41id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q42id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q43id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q44id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q45id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q46id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q47id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q48id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q49id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="q50id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    epid, name, q1id, q2id, q3id, q4id, q5id, q6id, q7id, q8id, q9id, q10id, q11id, q12id, 
+    q13id, q14id, q15id, q16id, q17id, q18id, q19id, q20id, q21id, q22id, q23id, q24id, 
+    q25id, q26id, q27id, q28id, q29id, q30id, q31id, q32id, q33id, q34id, q35id, q36id, 
+    q37id, q38id, q39id, q40id, q41id, q42id, q43id, q44id, q45id, q46id, q47id, q48id, 
+    q49id, q50id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.kgc.wxc.exam.entity.ExamPaperExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from exam_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from exam_paper
+    where epid = #{epid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from exam_paper
+    where epid = #{epid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.kgc.wxc.exam.entity.ExamPaperExample" >
+    delete from exam_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.kgc.wxc.exam.entity.ExamPaper" >
+    insert into exam_paper (epid, name, q1id, 
+      q2id, q3id, q4id, q5id, 
+      q6id, q7id, q8id, q9id, 
+      q10id, q11id, q12id, 
+      q13id, q14id, q15id, 
+      q16id, q17id, q18id, 
+      q19id, q20id, q21id, 
+      q22id, q23id, q24id, 
+      q25id, q26id, q27id, 
+      q28id, q29id, q30id, 
+      q31id, q32id, q33id, 
+      q34id, q35id, q36id, 
+      q37id, q38id, q39id, 
+      q40id, q41id, q42id, 
+      q43id, q44id, q45id, 
+      q46id, q47id, q48id, 
+      q49id, q50id)
+    values (#{epid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{q1id,jdbcType=INTEGER}, 
+      #{q2id,jdbcType=INTEGER}, #{q3id,jdbcType=INTEGER}, #{q4id,jdbcType=INTEGER}, #{q5id,jdbcType=INTEGER}, 
+      #{q6id,jdbcType=INTEGER}, #{q7id,jdbcType=INTEGER}, #{q8id,jdbcType=INTEGER}, #{q9id,jdbcType=INTEGER}, 
+      #{q10id,jdbcType=INTEGER}, #{q11id,jdbcType=INTEGER}, #{q12id,jdbcType=INTEGER}, 
+      #{q13id,jdbcType=INTEGER}, #{q14id,jdbcType=INTEGER}, #{q15id,jdbcType=INTEGER}, 
+      #{q16id,jdbcType=INTEGER}, #{q17id,jdbcType=INTEGER}, #{q18id,jdbcType=INTEGER}, 
+      #{q19id,jdbcType=INTEGER}, #{q20id,jdbcType=INTEGER}, #{q21id,jdbcType=INTEGER}, 
+      #{q22id,jdbcType=INTEGER}, #{q23id,jdbcType=INTEGER}, #{q24id,jdbcType=INTEGER}, 
+      #{q25id,jdbcType=INTEGER}, #{q26id,jdbcType=INTEGER}, #{q27id,jdbcType=INTEGER}, 
+      #{q28id,jdbcType=INTEGER}, #{q29id,jdbcType=INTEGER}, #{q30id,jdbcType=INTEGER}, 
+      #{q31id,jdbcType=INTEGER}, #{q32id,jdbcType=INTEGER}, #{q33id,jdbcType=INTEGER}, 
+      #{q34id,jdbcType=INTEGER}, #{q35id,jdbcType=INTEGER}, #{q36id,jdbcType=INTEGER}, 
+      #{q37id,jdbcType=INTEGER}, #{q38id,jdbcType=INTEGER}, #{q39id,jdbcType=INTEGER}, 
+      #{q40id,jdbcType=INTEGER}, #{q41id,jdbcType=INTEGER}, #{q42id,jdbcType=INTEGER}, 
+      #{q43id,jdbcType=INTEGER}, #{q44id,jdbcType=INTEGER}, #{q45id,jdbcType=INTEGER}, 
+      #{q46id,jdbcType=INTEGER}, #{q47id,jdbcType=INTEGER}, #{q48id,jdbcType=INTEGER}, 
+      #{q49id,jdbcType=INTEGER}, #{q50id,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.kgc.wxc.exam.entity.ExamPaper" >
+    insert into exam_paper
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="epid != null" >
+        epid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="q1id != null" >
+        q1id,
+      </if>
+      <if test="q2id != null" >
+        q2id,
+      </if>
+      <if test="q3id != null" >
+        q3id,
+      </if>
+      <if test="q4id != null" >
+        q4id,
+      </if>
+      <if test="q5id != null" >
+        q5id,
+      </if>
+      <if test="q6id != null" >
+        q6id,
+      </if>
+      <if test="q7id != null" >
+        q7id,
+      </if>
+      <if test="q8id != null" >
+        q8id,
+      </if>
+      <if test="q9id != null" >
+        q9id,
+      </if>
+      <if test="q10id != null" >
+        q10id,
+      </if>
+      <if test="q11id != null" >
+        q11id,
+      </if>
+      <if test="q12id != null" >
+        q12id,
+      </if>
+      <if test="q13id != null" >
+        q13id,
+      </if>
+      <if test="q14id != null" >
+        q14id,
+      </if>
+      <if test="q15id != null" >
+        q15id,
+      </if>
+      <if test="q16id != null" >
+        q16id,
+      </if>
+      <if test="q17id != null" >
+        q17id,
+      </if>
+      <if test="q18id != null" >
+        q18id,
+      </if>
+      <if test="q19id != null" >
+        q19id,
+      </if>
+      <if test="q20id != null" >
+        q20id,
+      </if>
+      <if test="q21id != null" >
+        q21id,
+      </if>
+      <if test="q22id != null" >
+        q22id,
+      </if>
+      <if test="q23id != null" >
+        q23id,
+      </if>
+      <if test="q24id != null" >
+        q24id,
+      </if>
+      <if test="q25id != null" >
+        q25id,
+      </if>
+      <if test="q26id != null" >
+        q26id,
+      </if>
+      <if test="q27id != null" >
+        q27id,
+      </if>
+      <if test="q28id != null" >
+        q28id,
+      </if>
+      <if test="q29id != null" >
+        q29id,
+      </if>
+      <if test="q30id != null" >
+        q30id,
+      </if>
+      <if test="q31id != null" >
+        q31id,
+      </if>
+      <if test="q32id != null" >
+        q32id,
+      </if>
+      <if test="q33id != null" >
+        q33id,
+      </if>
+      <if test="q34id != null" >
+        q34id,
+      </if>
+      <if test="q35id != null" >
+        q35id,
+      </if>
+      <if test="q36id != null" >
+        q36id,
+      </if>
+      <if test="q37id != null" >
+        q37id,
+      </if>
+      <if test="q38id != null" >
+        q38id,
+      </if>
+      <if test="q39id != null" >
+        q39id,
+      </if>
+      <if test="q40id != null" >
+        q40id,
+      </if>
+      <if test="q41id != null" >
+        q41id,
+      </if>
+      <if test="q42id != null" >
+        q42id,
+      </if>
+      <if test="q43id != null" >
+        q43id,
+      </if>
+      <if test="q44id != null" >
+        q44id,
+      </if>
+      <if test="q45id != null" >
+        q45id,
+      </if>
+      <if test="q46id != null" >
+        q46id,
+      </if>
+      <if test="q47id != null" >
+        q47id,
+      </if>
+      <if test="q48id != null" >
+        q48id,
+      </if>
+      <if test="q49id != null" >
+        q49id,
+      </if>
+      <if test="q50id != null" >
+        q50id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="epid != null" >
+        #{epid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="q1id != null" >
+        #{q1id,jdbcType=INTEGER},
+      </if>
+      <if test="q2id != null" >
+        #{q2id,jdbcType=INTEGER},
+      </if>
+      <if test="q3id != null" >
+        #{q3id,jdbcType=INTEGER},
+      </if>
+      <if test="q4id != null" >
+        #{q4id,jdbcType=INTEGER},
+      </if>
+      <if test="q5id != null" >
+        #{q5id,jdbcType=INTEGER},
+      </if>
+      <if test="q6id != null" >
+        #{q6id,jdbcType=INTEGER},
+      </if>
+      <if test="q7id != null" >
+        #{q7id,jdbcType=INTEGER},
+      </if>
+      <if test="q8id != null" >
+        #{q8id,jdbcType=INTEGER},
+      </if>
+      <if test="q9id != null" >
+        #{q9id,jdbcType=INTEGER},
+      </if>
+      <if test="q10id != null" >
+        #{q10id,jdbcType=INTEGER},
+      </if>
+      <if test="q11id != null" >
+        #{q11id,jdbcType=INTEGER},
+      </if>
+      <if test="q12id != null" >
+        #{q12id,jdbcType=INTEGER},
+      </if>
+      <if test="q13id != null" >
+        #{q13id,jdbcType=INTEGER},
+      </if>
+      <if test="q14id != null" >
+        #{q14id,jdbcType=INTEGER},
+      </if>
+      <if test="q15id != null" >
+        #{q15id,jdbcType=INTEGER},
+      </if>
+      <if test="q16id != null" >
+        #{q16id,jdbcType=INTEGER},
+      </if>
+      <if test="q17id != null" >
+        #{q17id,jdbcType=INTEGER},
+      </if>
+      <if test="q18id != null" >
+        #{q18id,jdbcType=INTEGER},
+      </if>
+      <if test="q19id != null" >
+        #{q19id,jdbcType=INTEGER},
+      </if>
+      <if test="q20id != null" >
+        #{q20id,jdbcType=INTEGER},
+      </if>
+      <if test="q21id != null" >
+        #{q21id,jdbcType=INTEGER},
+      </if>
+      <if test="q22id != null" >
+        #{q22id,jdbcType=INTEGER},
+      </if>
+      <if test="q23id != null" >
+        #{q23id,jdbcType=INTEGER},
+      </if>
+      <if test="q24id != null" >
+        #{q24id,jdbcType=INTEGER},
+      </if>
+      <if test="q25id != null" >
+        #{q25id,jdbcType=INTEGER},
+      </if>
+      <if test="q26id != null" >
+        #{q26id,jdbcType=INTEGER},
+      </if>
+      <if test="q27id != null" >
+        #{q27id,jdbcType=INTEGER},
+      </if>
+      <if test="q28id != null" >
+        #{q28id,jdbcType=INTEGER},
+      </if>
+      <if test="q29id != null" >
+        #{q29id,jdbcType=INTEGER},
+      </if>
+      <if test="q30id != null" >
+        #{q30id,jdbcType=INTEGER},
+      </if>
+      <if test="q31id != null" >
+        #{q31id,jdbcType=INTEGER},
+      </if>
+      <if test="q32id != null" >
+        #{q32id,jdbcType=INTEGER},
+      </if>
+      <if test="q33id != null" >
+        #{q33id,jdbcType=INTEGER},
+      </if>
+      <if test="q34id != null" >
+        #{q34id,jdbcType=INTEGER},
+      </if>
+      <if test="q35id != null" >
+        #{q35id,jdbcType=INTEGER},
+      </if>
+      <if test="q36id != null" >
+        #{q36id,jdbcType=INTEGER},
+      </if>
+      <if test="q37id != null" >
+        #{q37id,jdbcType=INTEGER},
+      </if>
+      <if test="q38id != null" >
+        #{q38id,jdbcType=INTEGER},
+      </if>
+      <if test="q39id != null" >
+        #{q39id,jdbcType=INTEGER},
+      </if>
+      <if test="q40id != null" >
+        #{q40id,jdbcType=INTEGER},
+      </if>
+      <if test="q41id != null" >
+        #{q41id,jdbcType=INTEGER},
+      </if>
+      <if test="q42id != null" >
+        #{q42id,jdbcType=INTEGER},
+      </if>
+      <if test="q43id != null" >
+        #{q43id,jdbcType=INTEGER},
+      </if>
+      <if test="q44id != null" >
+        #{q44id,jdbcType=INTEGER},
+      </if>
+      <if test="q45id != null" >
+        #{q45id,jdbcType=INTEGER},
+      </if>
+      <if test="q46id != null" >
+        #{q46id,jdbcType=INTEGER},
+      </if>
+      <if test="q47id != null" >
+        #{q47id,jdbcType=INTEGER},
+      </if>
+      <if test="q48id != null" >
+        #{q48id,jdbcType=INTEGER},
+      </if>
+      <if test="q49id != null" >
+        #{q49id,jdbcType=INTEGER},
+      </if>
+      <if test="q50id != null" >
+        #{q50id,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.kgc.wxc.exam.entity.ExamPaperExample" resultType="java.lang.Integer" >
+    select count(*) from exam_paper
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update exam_paper
+    <set >
+      <if test="record.epid != null" >
+        epid = #{record.epid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.q1id != null" >
+        q1id = #{record.q1id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q2id != null" >
+        q2id = #{record.q2id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q3id != null" >
+        q3id = #{record.q3id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q4id != null" >
+        q4id = #{record.q4id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q5id != null" >
+        q5id = #{record.q5id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q6id != null" >
+        q6id = #{record.q6id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q7id != null" >
+        q7id = #{record.q7id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q8id != null" >
+        q8id = #{record.q8id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q9id != null" >
+        q9id = #{record.q9id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q10id != null" >
+        q10id = #{record.q10id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q11id != null" >
+        q11id = #{record.q11id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q12id != null" >
+        q12id = #{record.q12id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q13id != null" >
+        q13id = #{record.q13id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q14id != null" >
+        q14id = #{record.q14id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q15id != null" >
+        q15id = #{record.q15id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q16id != null" >
+        q16id = #{record.q16id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q17id != null" >
+        q17id = #{record.q17id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q18id != null" >
+        q18id = #{record.q18id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q19id != null" >
+        q19id = #{record.q19id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q20id != null" >
+        q20id = #{record.q20id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q21id != null" >
+        q21id = #{record.q21id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q22id != null" >
+        q22id = #{record.q22id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q23id != null" >
+        q23id = #{record.q23id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q24id != null" >
+        q24id = #{record.q24id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q25id != null" >
+        q25id = #{record.q25id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q26id != null" >
+        q26id = #{record.q26id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q27id != null" >
+        q27id = #{record.q27id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q28id != null" >
+        q28id = #{record.q28id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q29id != null" >
+        q29id = #{record.q29id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q30id != null" >
+        q30id = #{record.q30id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q31id != null" >
+        q31id = #{record.q31id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q32id != null" >
+        q32id = #{record.q32id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q33id != null" >
+        q33id = #{record.q33id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q34id != null" >
+        q34id = #{record.q34id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q35id != null" >
+        q35id = #{record.q35id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q36id != null" >
+        q36id = #{record.q36id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q37id != null" >
+        q37id = #{record.q37id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q38id != null" >
+        q38id = #{record.q38id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q39id != null" >
+        q39id = #{record.q39id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q40id != null" >
+        q40id = #{record.q40id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q41id != null" >
+        q41id = #{record.q41id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q42id != null" >
+        q42id = #{record.q42id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q43id != null" >
+        q43id = #{record.q43id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q44id != null" >
+        q44id = #{record.q44id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q45id != null" >
+        q45id = #{record.q45id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q46id != null" >
+        q46id = #{record.q46id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q47id != null" >
+        q47id = #{record.q47id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q48id != null" >
+        q48id = #{record.q48id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q49id != null" >
+        q49id = #{record.q49id,jdbcType=INTEGER},
+      </if>
+      <if test="record.q50id != null" >
+        q50id = #{record.q50id,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update exam_paper
+    set epid = #{record.epid,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      q1id = #{record.q1id,jdbcType=INTEGER},
+      q2id = #{record.q2id,jdbcType=INTEGER},
+      q3id = #{record.q3id,jdbcType=INTEGER},
+      q4id = #{record.q4id,jdbcType=INTEGER},
+      q5id = #{record.q5id,jdbcType=INTEGER},
+      q6id = #{record.q6id,jdbcType=INTEGER},
+      q7id = #{record.q7id,jdbcType=INTEGER},
+      q8id = #{record.q8id,jdbcType=INTEGER},
+      q9id = #{record.q9id,jdbcType=INTEGER},
+      q10id = #{record.q10id,jdbcType=INTEGER},
+      q11id = #{record.q11id,jdbcType=INTEGER},
+      q12id = #{record.q12id,jdbcType=INTEGER},
+      q13id = #{record.q13id,jdbcType=INTEGER},
+      q14id = #{record.q14id,jdbcType=INTEGER},
+      q15id = #{record.q15id,jdbcType=INTEGER},
+      q16id = #{record.q16id,jdbcType=INTEGER},
+      q17id = #{record.q17id,jdbcType=INTEGER},
+      q18id = #{record.q18id,jdbcType=INTEGER},
+      q19id = #{record.q19id,jdbcType=INTEGER},
+      q20id = #{record.q20id,jdbcType=INTEGER},
+      q21id = #{record.q21id,jdbcType=INTEGER},
+      q22id = #{record.q22id,jdbcType=INTEGER},
+      q23id = #{record.q23id,jdbcType=INTEGER},
+      q24id = #{record.q24id,jdbcType=INTEGER},
+      q25id = #{record.q25id,jdbcType=INTEGER},
+      q26id = #{record.q26id,jdbcType=INTEGER},
+      q27id = #{record.q27id,jdbcType=INTEGER},
+      q28id = #{record.q28id,jdbcType=INTEGER},
+      q29id = #{record.q29id,jdbcType=INTEGER},
+      q30id = #{record.q30id,jdbcType=INTEGER},
+      q31id = #{record.q31id,jdbcType=INTEGER},
+      q32id = #{record.q32id,jdbcType=INTEGER},
+      q33id = #{record.q33id,jdbcType=INTEGER},
+      q34id = #{record.q34id,jdbcType=INTEGER},
+      q35id = #{record.q35id,jdbcType=INTEGER},
+      q36id = #{record.q36id,jdbcType=INTEGER},
+      q37id = #{record.q37id,jdbcType=INTEGER},
+      q38id = #{record.q38id,jdbcType=INTEGER},
+      q39id = #{record.q39id,jdbcType=INTEGER},
+      q40id = #{record.q40id,jdbcType=INTEGER},
+      q41id = #{record.q41id,jdbcType=INTEGER},
+      q42id = #{record.q42id,jdbcType=INTEGER},
+      q43id = #{record.q43id,jdbcType=INTEGER},
+      q44id = #{record.q44id,jdbcType=INTEGER},
+      q45id = #{record.q45id,jdbcType=INTEGER},
+      q46id = #{record.q46id,jdbcType=INTEGER},
+      q47id = #{record.q47id,jdbcType=INTEGER},
+      q48id = #{record.q48id,jdbcType=INTEGER},
+      q49id = #{record.q49id,jdbcType=INTEGER},
+      q50id = #{record.q50id,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.kgc.wxc.exam.entity.ExamPaper" >
+    update exam_paper
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="q1id != null" >
+        q1id = #{q1id,jdbcType=INTEGER},
+      </if>
+      <if test="q2id != null" >
+        q2id = #{q2id,jdbcType=INTEGER},
+      </if>
+      <if test="q3id != null" >
+        q3id = #{q3id,jdbcType=INTEGER},
+      </if>
+      <if test="q4id != null" >
+        q4id = #{q4id,jdbcType=INTEGER},
+      </if>
+      <if test="q5id != null" >
+        q5id = #{q5id,jdbcType=INTEGER},
+      </if>
+      <if test="q6id != null" >
+        q6id = #{q6id,jdbcType=INTEGER},
+      </if>
+      <if test="q7id != null" >
+        q7id = #{q7id,jdbcType=INTEGER},
+      </if>
+      <if test="q8id != null" >
+        q8id = #{q8id,jdbcType=INTEGER},
+      </if>
+      <if test="q9id != null" >
+        q9id = #{q9id,jdbcType=INTEGER},
+      </if>
+      <if test="q10id != null" >
+        q10id = #{q10id,jdbcType=INTEGER},
+      </if>
+      <if test="q11id != null" >
+        q11id = #{q11id,jdbcType=INTEGER},
+      </if>
+      <if test="q12id != null" >
+        q12id = #{q12id,jdbcType=INTEGER},
+      </if>
+      <if test="q13id != null" >
+        q13id = #{q13id,jdbcType=INTEGER},
+      </if>
+      <if test="q14id != null" >
+        q14id = #{q14id,jdbcType=INTEGER},
+      </if>
+      <if test="q15id != null" >
+        q15id = #{q15id,jdbcType=INTEGER},
+      </if>
+      <if test="q16id != null" >
+        q16id = #{q16id,jdbcType=INTEGER},
+      </if>
+      <if test="q17id != null" >
+        q17id = #{q17id,jdbcType=INTEGER},
+      </if>
+      <if test="q18id != null" >
+        q18id = #{q18id,jdbcType=INTEGER},
+      </if>
+      <if test="q19id != null" >
+        q19id = #{q19id,jdbcType=INTEGER},
+      </if>
+      <if test="q20id != null" >
+        q20id = #{q20id,jdbcType=INTEGER},
+      </if>
+      <if test="q21id != null" >
+        q21id = #{q21id,jdbcType=INTEGER},
+      </if>
+      <if test="q22id != null" >
+        q22id = #{q22id,jdbcType=INTEGER},
+      </if>
+      <if test="q23id != null" >
+        q23id = #{q23id,jdbcType=INTEGER},
+      </if>
+      <if test="q24id != null" >
+        q24id = #{q24id,jdbcType=INTEGER},
+      </if>
+      <if test="q25id != null" >
+        q25id = #{q25id,jdbcType=INTEGER},
+      </if>
+      <if test="q26id != null" >
+        q26id = #{q26id,jdbcType=INTEGER},
+      </if>
+      <if test="q27id != null" >
+        q27id = #{q27id,jdbcType=INTEGER},
+      </if>
+      <if test="q28id != null" >
+        q28id = #{q28id,jdbcType=INTEGER},
+      </if>
+      <if test="q29id != null" >
+        q29id = #{q29id,jdbcType=INTEGER},
+      </if>
+      <if test="q30id != null" >
+        q30id = #{q30id,jdbcType=INTEGER},
+      </if>
+      <if test="q31id != null" >
+        q31id = #{q31id,jdbcType=INTEGER},
+      </if>
+      <if test="q32id != null" >
+        q32id = #{q32id,jdbcType=INTEGER},
+      </if>
+      <if test="q33id != null" >
+        q33id = #{q33id,jdbcType=INTEGER},
+      </if>
+      <if test="q34id != null" >
+        q34id = #{q34id,jdbcType=INTEGER},
+      </if>
+      <if test="q35id != null" >
+        q35id = #{q35id,jdbcType=INTEGER},
+      </if>
+      <if test="q36id != null" >
+        q36id = #{q36id,jdbcType=INTEGER},
+      </if>
+      <if test="q37id != null" >
+        q37id = #{q37id,jdbcType=INTEGER},
+      </if>
+      <if test="q38id != null" >
+        q38id = #{q38id,jdbcType=INTEGER},
+      </if>
+      <if test="q39id != null" >
+        q39id = #{q39id,jdbcType=INTEGER},
+      </if>
+      <if test="q40id != null" >
+        q40id = #{q40id,jdbcType=INTEGER},
+      </if>
+      <if test="q41id != null" >
+        q41id = #{q41id,jdbcType=INTEGER},
+      </if>
+      <if test="q42id != null" >
+        q42id = #{q42id,jdbcType=INTEGER},
+      </if>
+      <if test="q43id != null" >
+        q43id = #{q43id,jdbcType=INTEGER},
+      </if>
+      <if test="q44id != null" >
+        q44id = #{q44id,jdbcType=INTEGER},
+      </if>
+      <if test="q45id != null" >
+        q45id = #{q45id,jdbcType=INTEGER},
+      </if>
+      <if test="q46id != null" >
+        q46id = #{q46id,jdbcType=INTEGER},
+      </if>
+      <if test="q47id != null" >
+        q47id = #{q47id,jdbcType=INTEGER},
+      </if>
+      <if test="q48id != null" >
+        q48id = #{q48id,jdbcType=INTEGER},
+      </if>
+      <if test="q49id != null" >
+        q49id = #{q49id,jdbcType=INTEGER},
+      </if>
+      <if test="q50id != null" >
+        q50id = #{q50id,jdbcType=INTEGER},
+      </if>
+    </set>
+    where epid = #{epid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.kgc.wxc.exam.entity.ExamPaper" >
+    update exam_paper
+    set name = #{name,jdbcType=VARCHAR},
+      q1id = #{q1id,jdbcType=INTEGER},
+      q2id = #{q2id,jdbcType=INTEGER},
+      q3id = #{q3id,jdbcType=INTEGER},
+      q4id = #{q4id,jdbcType=INTEGER},
+      q5id = #{q5id,jdbcType=INTEGER},
+      q6id = #{q6id,jdbcType=INTEGER},
+      q7id = #{q7id,jdbcType=INTEGER},
+      q8id = #{q8id,jdbcType=INTEGER},
+      q9id = #{q9id,jdbcType=INTEGER},
+      q10id = #{q10id,jdbcType=INTEGER},
+      q11id = #{q11id,jdbcType=INTEGER},
+      q12id = #{q12id,jdbcType=INTEGER},
+      q13id = #{q13id,jdbcType=INTEGER},
+      q14id = #{q14id,jdbcType=INTEGER},
+      q15id = #{q15id,jdbcType=INTEGER},
+      q16id = #{q16id,jdbcType=INTEGER},
+      q17id = #{q17id,jdbcType=INTEGER},
+      q18id = #{q18id,jdbcType=INTEGER},
+      q19id = #{q19id,jdbcType=INTEGER},
+      q20id = #{q20id,jdbcType=INTEGER},
+      q21id = #{q21id,jdbcType=INTEGER},
+      q22id = #{q22id,jdbcType=INTEGER},
+      q23id = #{q23id,jdbcType=INTEGER},
+      q24id = #{q24id,jdbcType=INTEGER},
+      q25id = #{q25id,jdbcType=INTEGER},
+      q26id = #{q26id,jdbcType=INTEGER},
+      q27id = #{q27id,jdbcType=INTEGER},
+      q28id = #{q28id,jdbcType=INTEGER},
+      q29id = #{q29id,jdbcType=INTEGER},
+      q30id = #{q30id,jdbcType=INTEGER},
+      q31id = #{q31id,jdbcType=INTEGER},
+      q32id = #{q32id,jdbcType=INTEGER},
+      q33id = #{q33id,jdbcType=INTEGER},
+      q34id = #{q34id,jdbcType=INTEGER},
+      q35id = #{q35id,jdbcType=INTEGER},
+      q36id = #{q36id,jdbcType=INTEGER},
+      q37id = #{q37id,jdbcType=INTEGER},
+      q38id = #{q38id,jdbcType=INTEGER},
+      q39id = #{q39id,jdbcType=INTEGER},
+      q40id = #{q40id,jdbcType=INTEGER},
+      q41id = #{q41id,jdbcType=INTEGER},
+      q42id = #{q42id,jdbcType=INTEGER},
+      q43id = #{q43id,jdbcType=INTEGER},
+      q44id = #{q44id,jdbcType=INTEGER},
+      q45id = #{q45id,jdbcType=INTEGER},
+      q46id = #{q46id,jdbcType=INTEGER},
+      q47id = #{q47id,jdbcType=INTEGER},
+      q48id = #{q48id,jdbcType=INTEGER},
+      q49id = #{q49id,jdbcType=INTEGER},
+      q50id = #{q50id,jdbcType=INTEGER}
+    where epid = #{epid,jdbcType=INTEGER}
+  </update>
+</mapper>
