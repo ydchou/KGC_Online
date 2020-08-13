@@ -1,4 +1,4 @@
-package cn.kgc.wxc.exam.util;
+package cn.kgc.wxc.exam.util.word;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.*;
