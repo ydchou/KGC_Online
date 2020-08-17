@@ -35,7 +35,7 @@ public class Itembank implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Itembank(Integer eid, String title, Integer choice, String answerA, String answerB, String answerC, String answerD, String rightAnswer, String knowledgePoint, String resolveExample, Integer testCount, Integer rightCount, Integer subject, Integer chapter, Integer detail) {
+    public Itembank(Integer eid, String title, Integer choice, String answerA, String answerB, String answerC, String answerD, String rightAnswer, String knowledgePoint, String resolveExample) {
         this.eid = eid;
         this.title = title;
         this.choice = choice;
@@ -46,11 +46,6 @@ public class Itembank implements Serializable {
         this.rightAnswer = rightAnswer;
         this.knowledgePoint = knowledgePoint;
         this.resolveExample = resolveExample;
-        this.testCount = testCount;
-        this.rightCount = rightCount;
-        this.subject = subject;
-        this.chapter = chapter;
-        this.detail = detail;
     }
 
     public Itembank() {

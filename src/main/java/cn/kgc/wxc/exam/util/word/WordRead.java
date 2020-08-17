@@ -1,5 +1,6 @@
-package cn.kgc.wxc.exam.util;
+package cn.kgc.wxc.exam.util.word;
 
+import cn.kgc.wxc.exam.entity.Itembank;
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.*;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
@@ -123,7 +124,7 @@ public class WordRead {
             String[] args = itme.split("\\|----theEnd----\\|");
             for (int i =0 ; i < args.length;i+=10){
                 Itembank itembank  =new Itembank(new Integer(args[i+0]),args[i+1],new Integer(args[i+2].equals("单选题")?0:1),args[i+3],args[i+4],args[i+5],args[i+6],args[i+7],args[i+8],args[i+9]);
-                System.out.println(itembank.toString());
+
             }
 
 

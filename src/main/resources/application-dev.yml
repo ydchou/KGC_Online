@@ -1,13 +1,18 @@
 server:
-  port: 8080
-   
+  port: 8080
 spring:
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://39.105.39.82:3306/kgconline?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-    driver-class-name: com.mysql.jdbc.Driver
-   
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.105.39.82:3306/kgconline?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=true
+    username: root
+    password: root
+  servlet:
+    multipart:
+      # 上传文件总的最大值
+      max-file-size: 10MB
+      # 单个文件的最大值
+      max-request-size: 10MB
+
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.example.entity
@@ -18,3 +23,8 @@ logging:
     com:
       example:
         mapper : debug
+
+
+  spring.servlet.multipart.max-request-size=10MB
+
+  spring.servlet.multipart.max-file-size=10MB
